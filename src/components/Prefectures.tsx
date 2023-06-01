@@ -18,13 +18,15 @@ export default function Prefectures() {
 
 	return (
 		<aside>
-			<h1>Checkbox List</h1>
-			{prefData?.result.map((info) => (
-				<label htmlFor={info.prefName} key={info.prefCode}>
-					<input type="checkbox" name={info.prefName} id={info.prefName} />
-					<span>{info.prefName}</span>
-				</label>
-			))}
+			<h1 className="aside__title">都道府県</h1>
+			<div className="aside__checkbox-list">
+				{prefData?.result.map((info) => (
+					<label htmlFor={info.prefName} key={info.prefCode} className="aside__label">
+						<input type="checkbox" name={info.prefName} id={info.prefName} />
+						<span>{info.prefName}</span>
+					</label>
+				))}
+			</div>
 		</aside>
 	);
 }
