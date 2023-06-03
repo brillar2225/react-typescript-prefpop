@@ -1,4 +1,4 @@
-interface PrefType {
+export interface PrefType {
 	prefCode: number;
 	prefName: string;
 }
