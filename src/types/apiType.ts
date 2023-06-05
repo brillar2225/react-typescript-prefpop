@@ -3,24 +3,19 @@ export interface PrefType {
 	prefName: string;
 }
 
-interface PopDataType {
-	year: number;
-	value: number;
-	rate?: number;
-}
-
-interface PopType {
-	boundaryYear: number;
-	data: {
-		label: string;
-		data: PopDataType[];
-	};
-}
-
 interface ApiResponce<T> {
 	message: string | null;
 	result: T;
 }
 
+export interface ChartData {
+	prefCode: number;
+	prefName: string;
+	prefColor: string;
+	data: {
+		year: number;
+		value: number;
+	}[];
+}
+
 export type PrefResult = ApiResponce<PrefType[]>;
-export type PopResult = ApiResponce<PopType>;
