@@ -3,6 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import { ChartData } from '../types/apiType';
 
 interface Props {
+	btnName: string;
 	chartData: ChartData[];
 }
 
@@ -11,7 +12,7 @@ interface Data {
 	[prefectures: string]: number;
 }
 
-export default function Graph({ chartData }: Props) {
+export default function Graph({ btnName, chartData }: Props) {
 	const data: Data[] = [];
 
 	chartData.forEach((item) => {
@@ -31,7 +32,7 @@ export default function Graph({ chartData }: Props) {
 
 	return (
 		<article className="graph">
-			<h1 className="graph__title">総人口推移グラフ</h1>
+			<h1 className="graph__title">{btnName}推移グラフ</h1>
 			<ResponsiveContainer width="100%" height={400}>
 				<LineChart
 					width={500}

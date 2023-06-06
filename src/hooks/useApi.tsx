@@ -56,6 +56,7 @@ const defaultColors = [
 let randomColor = '';
 
 export default function useApi() {
+	const [btnName, setBtnName] = useState<string>('総人口');
 	const [chartData, setChartData] = useState<ChartData[]>([]);
 
 	const getPrefectures = useQuery<PrefResult>({
@@ -79,6 +80,7 @@ export default function useApi() {
 				},
 			}
 		);
+		const { result } = data;
 
 		const getRandomColor = (): string => {
 			randomColor = defaultColors[Math.floor(Math.random() * defaultColors.length)];
@@ -91,10 +93,40 @@ export default function useApi() {
 			getRandomColor();
 		}
 
-		return setChartData((prev) => [
-			...prev,
-			{ prefCode, prefName, prefColor: randomColor, data: data.result.data[0].data },
-		]);
+		switch (btnName) {
+			case '総人口':
+				return setChartData((prev) => [
+					...prev,
+					{ prefCode, prefName, prefColor: randomColor, data: result.data[0].data },
+				]);
+			case '少年人口':
+				return setChartData((prev) => [
+					...prev,
+					{ prefCode, prefName, prefColor: randomColor, data: result.data[1].data },
+				]);
+			case '生産年齢人口':
+				return setChartData((prev) => [
+					...prev,
+					{ prefCode, prefName, prefColor: randomColor, data: result.data[2].data },
+				]);
+			case '老人人口':
+				return setChartData((prev) => [
+					...prev,
+					{ prefCode, prefName, prefColor: randomColor, data: result.data[3].data },
+				]);
+			default:
+				return setChartData((prev) => [
+					...prev,
+					{ prefCode, prefName, prefColor: randomColor, data: result.data[0].data },
+				]);
+		}
+	};
+
+	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+		const { name } = e.currentTarget;
+
+		setBtnName(name);
+		setChartData([]);
 	};
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -107,5 +139,5 @@ export default function useApi() {
 			: setChartData((curr) => curr.filter((item) => item.prefCode !== checkedId));
 	};
 
-	return { chartData, getPrefectures, handleChange };
+	return { btnName, chartData, getPrefectures, handleClick, handleChange };
 }

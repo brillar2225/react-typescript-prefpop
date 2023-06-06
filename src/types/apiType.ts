@@ -15,6 +15,7 @@ export interface ChartData {
 	data: {
 		year: number;
 		value: number;
+		rate?: number;
 	}[];
 }
 

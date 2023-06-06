@@ -4,18 +4,23 @@ import Graph from './Graph';
 import useApi from '../hooks/useApi';
 
 export default function Main() {
-	const { chartData, getPrefectures, handleChange } = useApi();
+	const { btnName, chartData, getPrefectures, handleClick, handleChange } = useApi();
 	const { data: prefDatas } = getPrefectures;
 
 	return (
 		<main>
 			<h1 className="sr-only">各都道府県の総人口推移グラフサイト</h1>
 			<div className="main__wrapper">
-				<Prefectures chartData={chartData} prefDatas={prefDatas} handleChange={handleChange} />
+				<Prefectures
+					chartData={chartData}
+					prefDatas={prefDatas}
+					handleClick={handleClick}
+					handleChange={handleChange}
+				/>
 			</div>
 			<div className="hr" />
 			<div className="main__wrapper">
-				<Graph chartData={chartData} />
+				<Graph btnName={btnName} chartData={chartData} />
 			</div>
 		</main>
 	);
