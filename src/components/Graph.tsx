@@ -30,9 +30,9 @@ export default function Graph({ chartData }: Props) {
 	});
 
 	return (
-		<article>
+		<article className="graph">
 			<h1 className="graph__title">総人口推移グラフ</h1>
-			<ResponsiveContainer width="100%" height={500}>
+			<ResponsiveContainer width="100%" height={400}>
 				<LineChart
 					width={500}
 					height={300}

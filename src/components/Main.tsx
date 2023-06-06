@@ -9,8 +9,14 @@ export default function Main() {
 
 	return (
 		<main>
-			<Prefectures chartData={chartData} prefDatas={prefDatas} handleChange={handleChange} />
-			<Graph chartData={chartData} />
+			<h1 className="sr-only">各都道府県の総人口推移グラフサイト</h1>
+			<div className="main__wrapper">
+				<Prefectures chartData={chartData} prefDatas={prefDatas} handleChange={handleChange} />
+			</div>
+			<div className="hr" />
+			<div className="main__wrapper">
+				<Graph chartData={chartData} />
+			</div>
 		</main>
 	);
 }
