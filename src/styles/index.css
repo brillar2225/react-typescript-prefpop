@@ -7,7 +7,7 @@
   --max-md: 448px;
   --max-lg: 512px;
   --max-xl: 576px;
-  --max-2xl: 672px
+  --max-2xl: 672px;
   --max-3xl: 768px;
   --max-4xl: 896px;
   --max-5xl: 1024px;
@@ -36,7 +36,7 @@
 
 /* Global */
 * {
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 html, body, #root {
@@ -101,7 +101,7 @@ main {
 
 .main__wrapper {
   max-width: var(--max-xs);
-  width: var(--w-full);;
+  width: var(--w-full);
   margin: auto;
 }
 
@@ -336,6 +336,10 @@ footer {
 
   .main__wrapper {
     max-width: var(--max-2xl);
+  }
+
+  .aside__btns {
+    width: 502px;
   }
 
   .aside__checkbox-list {
