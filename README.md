@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# プロジェクト名
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+都道府県の総人口推移グラフアプリ   
+デモ版: <https://brillar2225.github.io/react-typescript-prefpop/>
 
-## Available Scripts
+## 概要
 
-In the project directory, you can run:
+このアプリでは、日本の各都道府県における「総人口」「少年人口」「生産年齢人口」「老人人口」をグラフを通じて動的に確認できます。
+<img alt="総人口推移グラフ画面" src="https://github.com/brillar2225/react-typescript-prefpop/assets/91242076/62fa4dab-0d32-4964-8169-b8ea6def003d" width="1024px">
 
-### `npm start`
+今回のプロジェクトでは、確かに一人での作業ではありましたが、チーム開発のように**アプリの拡張性やコードの読みやすさに気をつけて作成**するようにしました。   
+例えば、UIやロジックのコードを分離し、コードの可読性を高めるなど、それぞれのコンポーネントが持つ用途に合わせて構成しました。   
+また、CSSの作業においても、UIライブラリーの使用が禁止されていたため、BEMを積極的に使用することで、classの規則性を保ちチーム開発にも対応するようにしました。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 使用技術
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
++ React
++ TypeScript
++ Recharts.js
++ RESAS API
++ jest
 
-### `npm test`
+### 利用方法
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+利用方法は、とても簡単です。
+1. 上記の4個のカテゴリーからご希望の情報を押下してください。デフォルトは総人口ですので、押下しなくても構いません。
+2. 気になる都道府県をチェックして当該都道府県の人口推移についてグラフを通じて確認してみてください。
 
-### `npm run build`
+### コマンドライン
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> デベロップメントモードを開始します。
+```sh
+npm run start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> テストモードを開始します。
+```sh
+npm test
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> コードをビルドしデプロイを開始します。
+```sh
+npm run deploy
+```
 
-### `npm run eject`
+### 改善したい点
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+この旅は、始めて使う技術が多かったため、私にとっては大きなチャレンジでした。   
+しかし、その分得たものもたくさんあると考えました。   
+とはいえ、改善したい点について少し述べさせていただきたいと思います。   
+1. テストコードのみならず、jestの勉強を深めて今後のコード作成において、コードの安定性を高めたいです。引いては、TDDという方式に挑戦してみたいと考えました。この度は始めて使う技術が多かったことから、コードを先に書いてからテストコードを書きましたが、このような形でテストコードを書くと、どうしても自分のコードに合わせてテストコードを書くようになるので、安定性の高くリファクタリングしやすいコードになりにくいと感じました。
+2. アプリのロジックをuseApiのカスタムフックに纏めて、内部の各ロジックが連携して動作するように開発してありますが、この点によりロジック間の依存性が高くなっていると考えました。故に、今後のリファクタリングを考慮し、それぞれの依存性を低める必要があると考えました。
