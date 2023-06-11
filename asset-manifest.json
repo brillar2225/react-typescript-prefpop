@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-typescript-prefpop/static/css/main.667a61fa.css",
+    "main.js": "/react-typescript-prefpop/static/js/main.78b57b3e.js",
+    "index.html": "/react-typescript-prefpop/index.html",
+    "main.667a61fa.css.map": "/react-typescript-prefpop/static/css/main.667a61fa.css.map",
+    "main.78b57b3e.js.map": "/react-typescript-prefpop/static/js/main.78b57b3e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.667a61fa.css",
+    "static/js/main.78b57b3e.js"
+  ]
+}
