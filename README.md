@@ -15,8 +15,10 @@
 ### 使用技術
 
 + React
++ TanStack Query
 + TypeScript
 + Recharts.js
++ axios
 + RESAS API
 + jest
 
