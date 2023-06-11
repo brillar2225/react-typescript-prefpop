@@ -38,6 +38,7 @@ export default function Prefectures({ chartData, prefDatas, handleClick, handleC
 								type="checkbox"
 								name={info.prefName}
 								id={info.prefCode.toString()}
+								data-testid={info.prefName}
 								checked={chartData?.some((i) => i.prefCode === info.prefCode)}
 								onChange={handleChange}
 							/>

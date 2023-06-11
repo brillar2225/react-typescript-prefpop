@@ -88,7 +88,7 @@ export default function useApi() {
 		};
 
 		getRandomColor();
-		const usedColor = chartData.find((item) => defaultColors.includes(item.prefColor));
+		const usedColor = chartData.find((item) => !defaultColors.includes(item.prefColor));
 		if (usedColor) {
 			getRandomColor();
 		}
@@ -139,5 +139,5 @@ export default function useApi() {
 			: setChartData((curr) => curr.filter((item) => item.prefCode !== checkedId));
 	};
 
-	return { btnName, chartData, getPrefectures, handleClick, handleChange };
+	return { btnName, chartData, getPrefectures, getPopulation, handleClick, handleChange };
 }
